@@ -1,15 +1,29 @@
-import React from 'react'
-import {render} from 'react-dom'
+import React, { Component } from 'react';
+import { render } from 'react-dom';
+import VideoFaces from '../../src'
 
-import Component from '../../src'
 
-let Demo = React.createClass({
-  render() {
-    return <div>
-      <h1>react-video-faces Demo</h1>
-      <Component/>
-    </div>
+class Demo extends Component {
+
+  onFacesDetection = (result) => {
+    console.log(result);
   }
-})
 
-render(<Demo/>, document.querySelector('#demo'))
+  render() {
+    return (
+      <div>
+        <h1>react-video-faces Demo</h1>
+        <VideoFaces
+          controls={true}
+          crossOrigin="Anonymous"
+          src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4#t=300"
+          models="./face-models"
+          onResult={this.onFacesDetection}
+          drawDetection = { true }
+        />
+      </div>
+    );
+  }
+}
+
+render(<Demo/>, document.querySelector('#demo'));
