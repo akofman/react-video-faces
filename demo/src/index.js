@@ -15,9 +15,9 @@ class Demo extends Component {
         <h1>react-video-faces Demo</h1>
         <VideoFaces
           controls={true}
-          crossOrigin="Anonymous"
-          src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4#t=300"
-          models="./face-models"
+          crossOrigin="anonymous"
+          src="https://github.com/justadudewhohacks/face-api.js/blob/master/examples/public/media/bbt.mp4?raw=true"
+          models="./mtcnn/"
           onResult={this.onFacesDetection}
           drawDetection = { true }
         />
